@@ -179,7 +179,9 @@
 
 <script>
 const WORKER_URL = 'https://dolcomment.steve-340.workers.dev';
-
+const today = new Date().toLocaleDateString('en-US', { 
+  year: 'numeric', month: 'long', day: 'numeric' 
+});
 const SYSTEM_PROMPT = `You are a DOL comment letter assistant helping a plan fiduciary write a personalized comment on the Department of Labor's proposed rule on PBM compensation disclosure (Docket No. 2026-01907). Comments are due April 15, 2026.
 YOUR APPROACH:
 Be warm, concise, and professional
@@ -247,7 +249,7 @@ Transition to profile questions: "That's all 11 areas. I just need a few details
 Collect one at a time: their name, their title, their company name, approximate number of employees and dependents covered.
 Then generate the complete comment letter.
 LETTER FORMAT:
-[Name] [Title] [Company] [Today's Date]
+[Name] [Title] [Company] ${today}
 Office of Regulations and Interpretations
 Employee Benefits Security Administration
 Room N-5655
